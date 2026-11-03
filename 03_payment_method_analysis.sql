@@ -3,7 +3,7 @@ SELECT
   payment_method,
   COUNT(*) AS total_orders,
   COUNT(DISTINCT customer_id) AS unique_customers
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 GROUP BY payment_method
 ORDER BY total_orders DESC;
 
@@ -15,7 +15,7 @@ SELECT
   COUNTIF(LOWER(order_status) = 'shipped') AS shipped,
   COUNTIF(LOWER(order_status) = 'processing') AS processing,
   COUNT(*) AS total_orders
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 GROUP BY payment_method
 ORDER BY total_orders DESC;
 
@@ -30,7 +30,7 @@ SELECT
       COUNT(*)
     ) * 100, 2
   ) AS cancellation_rate_pct
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 GROUP BY payment_method
 ORDER BY cancellation_rate_pct DESC;
 
@@ -39,5 +39,5 @@ SELECT
   payment_method,
   COUNT(*) AS total_orders,
   RANK() OVER (ORDER BY COUNT(*) DESC) AS payment_rank
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 GROUP BY payment_method;
