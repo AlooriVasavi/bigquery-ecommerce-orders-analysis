@@ -4,7 +4,7 @@ SELECT
   COUNT(*) AS total_orders,
   COUNTIF(LOWER(order_status) = 'delivered') AS delivered_orders,
   COUNTIF(LOWER(order_status) = 'cancelled') AS cancelled_orders
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 GROUP BY customer_id
 ORDER BY total_orders DESC
 LIMIT 10;
@@ -15,7 +15,7 @@ SELECT
   COUNT(*) AS total_orders,
   MIN(order_date) AS first_order_date,
   MAX(order_date) AS latest_order_date
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 GROUP BY customer_id
 HAVING COUNT(*) > 1
 ORDER BY total_orders DESC;
@@ -27,7 +27,7 @@ WITH customer_summary AS (
     COUNT(*) AS total_orders,
     COUNTIF(LOWER(order_status) = 'delivered') AS delivered_orders,
     COUNTIF(LOWER(order_status) = 'cancelled') AS cancelled_orders
-  FROM `your-project-id.ecommerce_analysis.orders`
+  FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
   GROUP BY customer_id
 )
 SELECT
@@ -44,7 +44,7 @@ ORDER BY total_orders DESC;
 SELECT
   customer_id,
   COUNT(*) AS cancelled_orders
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 WHERE LOWER(order_status) = 'cancelled'
 GROUP BY customer_id
 ORDER BY cancelled_orders DESC, customer_id
