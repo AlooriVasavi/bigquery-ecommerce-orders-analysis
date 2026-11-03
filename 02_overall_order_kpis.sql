@@ -12,7 +12,7 @@ SELECT
       COUNT(*)
     ) * 100, 2
   ) AS cancellation_rate_pct
-FROM `your-project-id.ecommerce_analysis.orders`;
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`;
 
 -- 2. Order status distribution
 SELECT
@@ -20,7 +20,7 @@ SELECT
   COUNT(*) AS order_count,
   ROUND(SAFE_DIVIDE(COUNT(*), SUM(COUNT(*)) OVER()) * 100, 2)
     AS order_share_pct
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 GROUP BY order_status
 ORDER BY order_count DESC;
 
@@ -29,6 +29,6 @@ SELECT
   EXTRACT(YEAR FROM order_date) AS order_year,
   COUNT(*) AS total_orders,
   COUNT(DISTINCT customer_id) AS unique_customers
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 GROUP BY order_year
 ORDER BY order_year;
