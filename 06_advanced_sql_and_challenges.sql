@@ -1,6 +1,6 @@
 -- 1. Latest order for every customer
 SELECT *
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 QUALIFY ROW_NUMBER() OVER (
   PARTITION BY customer_id
   ORDER BY order_date DESC, order_id DESC
@@ -23,13 +23,13 @@ SELECT
     ),
     DAY
   ) AS days_since_previous_order
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 ORDER BY customer_id, order_date;
 
 -- 3. Rank customers by order count
 WITH customer_orders AS (
   SELECT customer_id, COUNT(*) AS total_orders
-  FROM `your-project-id.ecommerce_analysis.orders`
+  FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
   GROUP BY customer_id
 )
 SELECT
@@ -50,7 +50,7 @@ SELECT
       COUNT(*)
     ) * 100, 2
   ) AS cancellation_rate_pct
-FROM `your-project-id.ecommerce_analysis.orders`
+FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`
 GROUP BY order_month
 ORDER BY order_month;
 
