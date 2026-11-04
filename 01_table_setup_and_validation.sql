@@ -1,5 +1,5 @@
 -- E-COMMERCE ORDERS PROJECT
--- Replace ecommerce-sql-project-513607 with your Google Cloud project ID.
+-- Replace ecommerce-sql-project-513607 with Google Cloud project ID.
 -- Create the table if you prefer to create it through SQL.
 CREATE TABLE IF NOT EXISTS `ecommerce-sql-project-513607.ecommerce_analysis.orders` (
   order_id INT64,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `ecommerce-sql-project-513607.ecommerce_analysis.orde
   payment_method STRING
 );
 
--- After loading your 150-row CSV, validate row count and sample records.
+-- After loading 150-row CSV, validate row count and sample records.
 SELECT COUNT(*) AS total_rows
 FROM `ecommerce-sql-project-513607.ecommerce_analysis.orders`;
 
